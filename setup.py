@@ -1,24 +1,26 @@
+from httpie_apikey_auth import __version__
 from setuptools import setup
-try:
-    import multiprocessing
-except ImportError:
-    pass
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 
 setup(
-    name='httpie-api-auth',
-    description='ApiAuth plugin for HTTPie.',
-    long_description=open('README.rst').read().strip(),
-    version='0.3.0',
-    author='Kyle Hargraves',
-    author_email='pd@krh.me',
+    name='httpie-apikey-auth',
+    description='Elastic ApiKey plugin for HTTPie.',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    version=__version__,
+    author='Derek Ditch',
+    author_email='dcode@rocknsm.io',
     license='MIT',
-    url='https://github.com/pd/httpie-api-auth',
-    download_url='https://github.com/pd/httpie-api-auth',
-    py_modules=['httpie_api_auth'],
+    url='https://github.com/dcode/httpie-apikey-auth',
+    download_url='https://github.com/dcode/httpie-apikey-auth',
+    py_modules=['httpie_apikey_auth'],
     zip_safe=False,
     entry_points={
         'httpie.plugins.auth.v1': [
-            'httpie_api_auth = httpie_api_auth:ApiAuthPlugin'
+            'httpie_apikey_auth = httpie_apikey_auth:ApiKeyPlugin'
         ]
     },
     install_requires=[
